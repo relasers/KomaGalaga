@@ -46,9 +46,10 @@ public class PlayerController : MonoBehaviour {
     private void FixedUpdate()
     {
         float velocityX = Input.GetAxis("Horizontal") * speed * Time.fixedDeltaTime;
-        float velocityY = Input.GetAxis("Vertical") * speed * Time.fixedDeltaTime;
+       // float velocityY = Input.GetAxis("Vertical") * speed * Time.fixedDeltaTime;
 
-        rigidbody2D.velocity = new Vector2(velocityX , velocityY);
+        // 플레이어는 수평선으로만 움직인다.
+        rigidbody2D.velocity = new Vector2(velocityX , 0);
 
 
     }

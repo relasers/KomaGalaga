@@ -5,6 +5,7 @@ using UnityEngine;
 public class ProjectileMover : MonoBehaviour {
 
     public float speed = 150.0f;
+    public bool isCollisioned = false;
     public Vector2 MovingDirection = new Vector2(0,0);
     Rigidbody2D rigidbody2D;
 
@@ -32,6 +33,11 @@ public class ProjectileMover : MonoBehaviour {
             Debug.Log("remove");
             Destroy(gameObject);
         }
+    }
+
+    public void SwitchCollisioned(bool _isCollisioned)
+    {
+        isCollisioned = _isCollisioned;
     }
 
 }

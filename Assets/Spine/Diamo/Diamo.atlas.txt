@@ -1,0 +1,13 @@
+
+Diamo.png
+size: 128,128
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+Fairy/Fairy
+  rotate: false
+  xy: 2, 2
+  size: 104, 66
+  orig: 104, 66
+  offset: 0, 0
+  index: -1
