@@ -18,6 +18,24 @@ public class StageManager : MonoBehaviour {
 
     List<GameObject> enemies;
 
+    // 리스트 내 적의 오브젝트가 destroy 되었을 경우 이를 제거하는 코루틴
+    Coroutine Coroutine_EnemyRemoverOnList;
+
+    IEnumerator EnemyRemoverOnList(float delay)
+    {
+        while (true)
+        {
+            for (int i =0; i< enemies.Count ;++i)
+            {
+                if (!enemies[i]) enemies.RemoveAt(i);
+            }
+
+            Debug.Log("Enemy NUm :: " + enemies.Count);
+            yield return new WaitForSeconds(delay);
+        }
+    }
+
+
     public float HullStageDistancer = 2.0f;
 
     private void Awake()
@@ -31,6 +49,9 @@ public class StageManager : MonoBehaviour {
 
     // Use this for initialization
     void Start () {
+
+
+        Coroutine_EnemyRemoverOnList = StartCoroutine(EnemyRemoverOnList(1));
 
         stage[0].ReadData("stage01");
 
