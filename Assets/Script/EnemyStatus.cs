@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class EnemyStatus : MonoBehaviour {
 
+    public GameObject particle_on_Destroy;
+    public int HP = 1;
 	// Use this for initialization
 	void Start () {
 		
@@ -24,8 +26,9 @@ public class EnemyStatus : MonoBehaviour {
             if (!mover.isCollisioned)
             {
                 mover.SwitchCollisioned(true);
-                Destroy(gameObject);
 
+
+                
                 // 총알 파티클 비활성화
                 Transform particle = collision.transform.FindChild("Particle System");
                 if (particle)
@@ -33,7 +36,21 @@ public class EnemyStatus : MonoBehaviour {
                     particle.parent = null;
 
                 }
+
+
+
+                if (particle_on_Destroy)
+                {
+                    GameObject new_particle = Instantiate(particle_on_Destroy,transform.position,transform.rotation);
+
+                }
+
                 Destroy(collision.gameObject);
+
+                HP--;
+
+                if(HP <= 0)
+                    Destroy(gameObject);
             }
             
         }

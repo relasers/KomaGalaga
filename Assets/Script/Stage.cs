@@ -5,7 +5,7 @@ using UnityEngine;
 public class Stage : MonoBehaviour {
     
     List<Dictionary<string, object>> data;
-    public int WidthCell = 8;
+    public int WidthCell = 10;
     public int HeightCell = 5;
 
     // Use this for initialization
